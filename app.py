@@ -101,6 +101,8 @@ if p_avg is not None:
     with tabs[2]:
         cat_sel = st.selectbox("Category", ["PTS/G", "REB/G", "AST/G", "PIE"])
         t10 = p_avg[['Player/Team', 'Team Name', cat_sel]].nlargest(10, cat_sel)
-        st.plotly_chart(
+        st.plotly_chart(px.bar(t10, x=cat_sel, y='Player/Team', orientation='h', template="plotly_dark", color_discrete_sequence=['#00a2ff']), use_container_width=True)
+
+    st.markdown('<div style="text-align: center; color: #444; padding: 20px;">© 2026 BPL PRO DATA HUB</div>', unsafe_allow_html=True)
 
 
